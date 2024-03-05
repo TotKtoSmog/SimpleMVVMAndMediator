@@ -80,13 +80,42 @@ namespace SimpleMVVMAndMediator.ViewModels
         }
         public Page2ViewModel()
         {
+            ClearProperty();
+            Mediator.Instance.ReceivedMessageFromPage1 += OnMessageReceived;
+        }
+        private void OnMessageReceived( User user)
+        {
+            UserDate = user;
+            ResultDate = $"{UserDate.Name}\n{UserDate.Address}\n{UserDate.Description}\n";
+        }
+        private void ClearProperty()
+        {
             Name = "";
             Address = "";
             Description = "";
             ResultDate = "";
             UserDate = new User("", "", "");
         }
-
+        public DelegateCommand Clear
+        {
+            get
+            {
+                return new DelegateCommand((obj) =>
+                {
+                    ClearProperty();
+                });
+            }
+        }
+        public DelegateCommand SendMessage
+        {
+            get
+            {
+                return new DelegateCommand((obj) =>
+                {
+                    Mediator.Instance.SendMessage("Page1", new User(Name, Address, Description));
+                });
+            }
+        }
 
     }
 }

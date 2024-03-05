@@ -29,8 +29,8 @@
                             <TextBox Text="{Binding Description}"/>
                         </StackPanel>
                         <DockPanel Margin="0, 10" >
-                            <Button DockPanel.Dock="Left" Margin="0,0,6,0" Content="Очстить"/>
-                            <Button DockPanel.Dock="Right" Content="Отправить"/>
+                            <Button Command="{Binding Clear}" DockPanel.Dock="Left" Margin="0,0,6,0" Content="Очстить"/>
+                            <Button Command="{Binding SendMessageToPage2}" DockPanel.Dock="Right" Content="Отправить"/>
                         </DockPanel>
                     </StackPanel>
                 </GroupBox>

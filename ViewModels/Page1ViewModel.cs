@@ -24,7 +24,6 @@ namespace SimpleMVVMAndMediator.ViewModels
                 OnPropertyChanged();
             }
         }
-
         private string _address;
         public string Address
         {
@@ -38,7 +37,6 @@ namespace SimpleMVVMAndMediator.ViewModels
                 OnPropertyChanged();
             }
         }
-
         private string _description;
         public string Description
         {
@@ -52,7 +50,6 @@ namespace SimpleMVVMAndMediator.ViewModels
                 OnPropertyChanged();
             }
         }
-
         private User _userDate;
         public User UserDate
         {
@@ -81,11 +78,44 @@ namespace SimpleMVVMAndMediator.ViewModels
         }
         public Page1ViewModel()
         {
+            ClearProperty();
+            Mediator.Instance.ReceivedMessage += OnMessageReceived;
+        }
+        private void ClearProperty()
+        {
             Name = "";
             Address = "";
             Description = "";
             ResultDate = "";
             UserDate = new User("", "", "");
+        }
+        public DelegateCommand SendMessageToPage2
+        {
+            get
+            {
+                return new DelegateCommand((obj) =>
+                {
+                    Mediator.Instance.SendMessagePage2(new User(Name, Address, Description));
+                });
+            }
+        }
+        public DelegateCommand Clear
+        {
+            get
+            {
+                return new DelegateCommand((obj) =>
+                {
+                    ClearProperty();
+                });
+            }
+        }
+        private void OnMessageReceived(string receiver, User user)
+        {
+            if (receiver == "Page1")
+            {
+                UserDate = user;
+                ResultDate = $"{UserDate.Name}\n{UserDate.Address}\n{UserDate.Description}\n";
+            }     
         }
     }
 }
