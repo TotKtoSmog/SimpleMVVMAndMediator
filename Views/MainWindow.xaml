@@ -8,6 +8,8 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <DockPanel LastChildFill="True">
+            <Frame DockPanel.Dock="Left" Source="Page1.xaml" Width="400"/>
+            <Frame DockPanel.Dock="Right" Source="Page2.xaml"/>
         </DockPanel>
     </Grid>
 </Window>
