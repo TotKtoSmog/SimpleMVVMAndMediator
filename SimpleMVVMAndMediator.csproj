@@ -56,7 +56,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\User.cs" />
+    <Compile Include="ViewModels\DelegateCommand.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\Mediator.cs" />
     <Compile Include="ViewModels\Page1ViewModel.cs" />
     <Compile Include="ViewModels\Page2ViewModel.cs" />
     <Compile Include="Views\Page1.xaml.cs">
