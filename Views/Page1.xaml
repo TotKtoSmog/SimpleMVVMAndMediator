@@ -10,7 +10,6 @@
 
     <Grid Margin="20">
         <GroupBox Header="Page1">
-            
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <GroupBox Header="Отправка" Margin="0,0,5,0">
                     <StackPanel>
@@ -34,12 +33,10 @@
                 </GroupBox>
                 <GroupBox Header="Получение">
                     <DockPanel Margin="10" >
-                        <TextBox TextWrapping="Wrap" AcceptsReturn="True" Width="130"/>
+                        <TextBox IsEnabled="False" TextWrapping="Wrap" AcceptsReturn="True" Width="130"/>
                     </DockPanel>
                 </GroupBox>
             </StackPanel>
-            
         </GroupBox>
-        
     </Grid>
 </Page>
